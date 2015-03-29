@@ -1,0 +1,97 @@
+:TARGET.SUFFIXES
+:TARGET.SUFFIXES
+:DEPENDENCY..c .obj .rc .res 
+:TARGET.all
+:DEPENDENCY.
+.\actmon.exe
+:RULE..rc.res
+:ACTION.Compile::Resource Compiler
+:COMMAND.
+rc.exe -r %s %|fF.RES
+:RULE.{e:\data\c\actmon}.rc.res
+:ACTION.Compile::Resource Compiler
+:COMMAND.
+rc.exe -r %s %|fF.RES
+:RULE..c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Tdp /O /Gm /Gt /C %s
+:RULE.{e:\data\c\actmon}.c.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Tdp /O /Gm /Gt /C %s
+:TARGET..\actmon.exe
+:DEPENDENCY.
+.\helper.obj
+.\properties.obj
+.\actmon.obj
+.\actmon.res
+{$(LIB)}os2386.lib
+{$(LIB)}cppom30.lib
+dll\actmon.lib
+{$(LIB)}actmon.def
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /B" /packd /optfunc"
+ /Feactmon.exe 
+ os2386.lib 
+ cppom30.lib 
+ dll\actmon.lib 
+ actmon.def
+ .\helper.obj
+ .\properties.obj
+ .\actmon.obj
+<<
+:ACTION.Bind::Resource Bind
+:COMMAND.
+rc.exe .\actmon.res actmon.exe
+:TARGET..\actmon.res
+:DEPENDENCY.
+e:\data\c\actmon\actmon.rc
+{e:\data\c\actmon;$(INCLUDE)}RedN.ICO
+{e:\data\c\actmon;$(INCLUDE)}RedO.ICO
+{e:\data\c\actmon;$(INCLUDE)}RedM.ICO
+{e:\data\c\actmon;$(INCLUDE)}RedT.ICO
+{e:\data\c\actmon;$(INCLUDE)}RedC.ICO
+{e:\data\c\actmon;$(INCLUDE)}RedA.ICO
+{e:\data\c\actmon;$(INCLUDE)}YellowN.ICO
+{e:\data\c\actmon;$(INCLUDE)}YellowO.ICO
+{e:\data\c\actmon;$(INCLUDE)}YellowM.ICO
+{e:\data\c\actmon;$(INCLUDE)}YellowT.ICO
+{e:\data\c\actmon;$(INCLUDE)}YellowC.ICO
+{e:\data\c\actmon;$(INCLUDE)}YellowA.ICO
+{e:\data\c\actmon;$(INCLUDE)}GreenN.ICO
+{e:\data\c\actmon;$(INCLUDE)}GreenO.ICO
+{e:\data\c\actmon;$(INCLUDE)}GreenM.ICO
+{e:\data\c\actmon;$(INCLUDE)}GreenT.ICO
+{e:\data\c\actmon;$(INCLUDE)}GreenC.ICO
+{e:\data\c\actmon;$(INCLUDE)}GreenA.ICO
+{e:\data\c\actmon;$(INCLUDE)}actmon.ico
+{e:\data\c\actmon;$(INCLUDE)}dialog.dlg
+{e:\data\c\actmon;$(INCLUDE)}dialog.h
+{e:\data\c\actmon;$(INCLUDE)}actmon.h
+:TARGET..\helper.obj
+:DEPENDENCY.
+e:\data\c\actmon\helper.c
+dll\actdll.h
+{e:\data\c\actmon;$(INCLUDE);}actmon.h
+{e:\data\c\actmon;$(INCLUDE);}helper.h
+{e:\data\c\actmon;$(INCLUDE);}properties.h
+{e:\data\c\actmon;$(INCLUDE);}dialog.h
+:TARGET..\actmon.obj
+:DEPENDENCY.
+e:\data\c\actmon\actmon.c
+dll\actdll.h
+{e:\data\c\actmon;$(INCLUDE);}actmon.h
+{e:\data\c\actmon;$(INCLUDE);}helper.h
+{e:\data\c\actmon;$(INCLUDE);}properties.h
+{e:\data\c\actmon;$(INCLUDE);}dialog.h
+:TARGET..\properties.obj
+:DEPENDENCY.
+e:\data\c\actmon\properties.c
+dll\actdll.h
+{e:\data\c\actmon;$(INCLUDE);}actmon.h
+{e:\data\c\actmon;$(INCLUDE);}helper.h
+{e:\data\c\actmon;$(INCLUDE);}properties.h
+{e:\data\c\actmon;$(INCLUDE);}dialog.h

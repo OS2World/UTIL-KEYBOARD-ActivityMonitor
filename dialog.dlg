@@ -1,0 +1,72 @@
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+DLGINCLUDE 1 "dialog.h"
+
+DLGTEMPLATE DLG_PROPERTIES LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Properties", DLG_PROPERTIES, 51, -57, 270, 191, WS_VISIBLE,
+            FCF_SYSMENU | FCF_TITLEBAR
+    BEGIN
+        GROUPBOX        "General settings", GB_GENERAL, 6, 130, 208, 55
+        LTEXT           "Computername:", ST_COMPUTERNAME, 12, 138, 64, 8,
+                        NOT WS_GROUP
+        AUTOCHECKBOX    "~Create logfile:", CB_CREATELOG, 8, 166, 69, 10
+        ENTRYFIELD      "", EF_LOGFILENAME, 79, 167, 128, 8, ES_MARGIN |
+                        WS_GROUP
+        LTEXT           "Viewer:", ST_VIEWER, 44, 152, 32, 8
+        ENTRYFIELD      "", EF_VIEWER, 79, 152, 127, 8, ES_MARGIN | WS_GROUP
+        ENTRYFIELD      "", EF_COMPUTERNAME, 79, 138, 128, 8, ES_MARGIN
+        GROUPBOX        "Keyboard use (Events/minute)", 125, 6, 96, 208, 33
+        SPINBUTTON      SB_KEYLOW, 58, 105, 37, 12, SPBS_NUMERICONLY |
+                        SPBS_MASTER | WS_GROUP
+        SPINBUTTON      SB_KEYHIGH, 127, 104, 37, 12, SPBS_NUMERICONLY |
+                        SPBS_MASTER | WS_GROUP
+        LTEXT           "Low", ST_KEYLOW, 12, 100, 66, 20, DT_VCENTER | NOT
+                        WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x0000FF00L
+        CTEXT           "Medium", ST_KEYMEDIUM, 78, 100, 65, 20, DT_VCENTER |
+                        NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x00FFFF00L
+        RTEXT           "Heavy", ST_KEYHEAVY, 143, 100, 65, 20, DT_VCENTER |
+                        NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x00FF0000L
+        GROUPBOX        "Mouse use (Events/minute)", GB_MOUSE, 5, 58, 209,
+                        35
+        SPINBUTTON      SB_MOUSELOW, 58, 69, 37, 12, SPBS_NUMERICONLY |
+                        SPBS_MASTER | WS_GROUP
+        SPINBUTTON      SB_MOUSEHIGH, 126, 69, 37, 12, SPBS_NUMERICONLY |
+                        SPBS_MASTER | WS_GROUP
+        LTEXT           "Low", ST_MOUSELOW, 12, 64, 66, 20, DT_VCENTER | NOT
+                        WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x0000FF00L
+        CTEXT           "Medium", ST_MOUSEMEDIUM, 78, 64, 65, 20, DT_VCENTER |
+                        NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x00FFFF00L
+        RTEXT           "Heavy", ST_MOUSEHEAVY, 143, 64, 65, 20, DT_VCENTER |
+                        NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x00FF0000L
+        GROUPBOX        "Status", GB_STATUS, 5, 10, 209, 46
+        SPINBUTTON      SB_STATUSLOW, 57, 31, 37, 12, SPBS_NUMERICONLY |
+                        SPBS_MASTER | WS_GROUP
+        SPINBUTTON      SB_STATUSHIGH, 125, 32, 37, 12, SPBS_NUMERICONLY |
+                        SPBS_MASTER | WS_GROUP
+        CTEXT           "Yellow", ST_STATUSYELLOW, 78, 26, 65, 20,
+                        DT_VCENTER | NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x00FFFF00L
+        RTEXT           "Red", ST_STATUSRED, 143, 26, 65, 20, DT_VCENTER |
+                        NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x00FF0000L
+        LTEXT           "Green", ST_STATUSGREEN, 13, 26, 65, 20, DT_VCENTER |
+                        NOT WS_GROUP
+                        PRESPARAMS PP_BACKGROUNDCOLOR, 0x0000FF00L
+        AUTOCHECKBOX    "~Beep when status RED", CB_BEEP, 15, 14, 192, 10,
+                        WS_GROUP
+        DEFPUSHBUTTON   "~Ok", PB_OK, 223, 167, 40, 14, WS_GROUP
+        PUSHBUTTON      "~Cancel", PB_CANCEL, 223, 149, 40, 14, NOT
+                        WS_TABSTOP
+        PUSHBUTTON      "~Help", PB_HELP, 223, 130, 40, 14, BS_HELP | NOT
+                        WS_TABSTOP
+    END
+END
+

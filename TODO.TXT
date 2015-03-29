@@ -1,0 +1,22 @@
+Oops, you found a file which is meant for internal use only, please ignore.... :-)
+
+TODO
+
+* Uitbreiden van de configuratiemogelijkheden:
+  * Penalties: 4 waarden voor toetsenbord en 4 waarden voor muis.
+  * Callibratie muis & toetsenbord.
+  * Lockup bij status rood
+    Realiseren met een eigen window: middenin het window een balk die langzaam
+    terugloopt en een Cancel knop. Als men Cancel kiest dan moet er een wacht-
+    woord worden gegeven om daadwerkelijk het window te annuleren. Window moet
+    System Modal zijn.
+* Logbestand naar CSV omzetten.
+* Mesa live feed.
+* Float to top.
+* Interactieve Hulp.
+* Controle dat er maar een kopie tegelijkertijd draait
+* Internationalisering:
+  * Alle teksten uit .C en .H bestanden naar resource bestanden
+* Screensaver modules ondersteunen
+* Status waarde weergeven
+

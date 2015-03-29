@@ -1,0 +1,48 @@
+:TARGET.SUFFIXES
+:TARGET.SUFFIXES
+:DEPENDENCY..C .LIB .dll .obj 
+:TARGET.all
+:DEPENDENCY.
+.\actmon.LIB
+:RULE..C.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /DSTATIC_LINK /O /Gm /Gd /Ge- /Gt /C %s
+:RULE.{e:\data\c\actmon\dll}.C.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /DSTATIC_LINK /O /Gm /Gd /Ge- /Gt /C %s
+:RULE..dll.LIB
+:ACTION.Lib::Import Lib
+:COMMAND.
+implib.exe %|dpfF.LIB %s
+:RULE.{e:\data\c\actmon\dll}.dll.LIB
+:ACTION.Lib::Import Lib
+:COMMAND.
+implib.exe %|dpfF.LIB %s
+:TARGET..\actmon.dll
+:DEPENDENCY.
+.\actdll.obj
+{$(LIB)}os2386.lib
+{$(LIB)}os2286.lib
+{$(LIB)}cppom30.lib
+{$(LIB)}actmon.def
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /B" /packd /optfunc /noe"
+ /Feactmon.dll 
+ os2386.lib 
+ os2286.lib 
+ cppom30.lib 
+ actmon.def
+ .\actdll.obj
+<<
+:TARGET..\actdll.obj
+:DEPENDENCY.
+e:\data\c\actmon\dll\actdll.C
+{e:\data\c\actmon\dll;$(INCLUDE);}actdll.h
+{e:\data\c\actmon\dll;$(INCLUDE);}actdll-private.h
+:TARGET..\actmon.LIB
+:DEPENDENCY.
+.\actmon.dll

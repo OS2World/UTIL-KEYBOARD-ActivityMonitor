@@ -1,0 +1,21 @@
+
+;-----------------------------------------------------
+; rsimon.def Module definition file for the DLL
+;-----------------------------------------------------
+
+LIBRARY ACTMON INITINSTANCE TERMINSTANCE
+DESCRIPTION 'Activity Monitor Helper DLL'
+PROTMODE
+DATA SINGLE SHARED READWRITE LOADONCALL
+CODE LOADONCALL
+EXPORTS          ; Names of exported functions and data
+   Init               @1
+   Terminate          @2
+   SetProperties      @3
+   GetProperties      @4
+   ResetStatus        @5
+   GetStatus          @6
+   ErrorMessage       @7
+   WinErrorMessage    @8
+
+

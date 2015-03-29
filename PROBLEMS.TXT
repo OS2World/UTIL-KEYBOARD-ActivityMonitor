@@ -1,0 +1,22 @@
+This file explains the problems I am aware of at this moment and gives a workaround. It is
+separated from the bugs list in the readme because these problems will be solved very soon
+
+PROBLEM:     If actmon.exe is started from the startup folder it doesn't dock into SysTray,
+             but if I close actmon and start it again it does work correctly.
+EXPLANATION: When actmon.exe is started from the startup folder there is not a good way to
+             control the timing and order in which the programs are started. actmon is
+             started before SysTray is ready to communicate with it, and thus actmon cannot
+             establish communications.
+WORKAROUND:  Start actmon and systray from a Rexx file and put a sleep statement in between
+             so SysTray gets time to fully start up before actmon is run.
+NOTES:       In one of the next versions I will add an option to poll for SysTray if actmon
+             fails to setup communications
+
+PROBLEM:     Installation is not according to the supplied instructions
+EXPLANATION: I was lazy
+WORKAROUND:  Unzip the file to any directory and start actmon.exe from that
+             directory.
+NOTES:       The final 1.0 version will be distributed as a executable WarpIN
+             package.
+
+
